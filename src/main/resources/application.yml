@@ -1,0 +1,36 @@
+micronaut:
+  server:
+    port: 8085
+  application:
+    name: os-hibernate
+  executors:
+    io:
+      type: fixed
+      nThreads: 50
+
+jackson:
+  bean-introspection-module: true
+
+
+datasources:
+  default:
+    url: jdbc:postgresql://db:5432/micro
+    #    url: ${JDBC_URL:`jdbc:mysql://172.17.0.2:3306/micro`}
+    #    url: ${JDBC_URL:`jdbc:mysql://localhost:3306/micro`}
+    username: root
+    password: root
+    driverClassName: org.postgresql.Driver
+    dialect: POSTGRES
+---
+jpa:
+  default:
+    packages-to-scan:
+      - 'example.micronaut.repo'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        bytecode:
+          provider: none
+#end::jpa[]

@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  db:
+    image: "postgres:11"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=micro
+    ports:
+      - "54320:5432"
+  web:
+    build: .
+    ports:
+      - "8085:8085"
+    links:
+      - "db:database"
+
