@@ -2,12 +2,13 @@ package example.micronaut.repo.entity;
 
 import static javax.persistence.FetchType.LAZY;
 
-import javax.persistence.Column;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,23 +20,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Book {
-
+public class Author {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
   @NotNull
-  @Column(name = "book_name", nullable = false)
-  private String bookName;
+  private String firstName;
 
   @NotNull
-  @Column(name = "isbn", nullable = false)
-  private String isbn;
+  private String lastName;
 
-  @ManyToOne(fetch = LAZY)
-  private Author author;
-
-  @ManyToOne(fetch = LAZY)
-  private Genre genre;
+  @OneToMany(mappedBy = "author", fetch = LAZY)
+  private Set<Book> books;
 }

@@ -24,8 +24,6 @@ datasources:
 ---
 jpa:
   default:
-    packages-to-scan:
-      - 'example.micronaut.repo'
     properties:
       hibernate:
         hbm2ddl:

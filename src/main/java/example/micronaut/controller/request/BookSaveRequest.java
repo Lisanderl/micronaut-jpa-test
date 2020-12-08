@@ -3,8 +3,15 @@ package example.micronaut.controller.request;
 import io.micronaut.core.annotation.Introspected;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Introspected
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BookSaveRequest {
   @NotBlank
   private String name;
@@ -12,28 +19,6 @@ public class BookSaveRequest {
   private String isbn;
   @NotNull
   private Long genreId;
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getIsbn() {
-    return isbn;
-  }
-
-  public void setIsbn(String isbn) {
-    this.isbn = isbn;
-  }
-
-  public Long getGenreId() {
-    return genreId;
-  }
-
-  public void setGenreId(Long genreId) {
-    this.genreId = genreId;
-  }
+  @NotNull
+  private Long authorId;
 }

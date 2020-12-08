@@ -43,13 +43,13 @@ public class GenreController {
 
   @Post
   public Genre create(@Body @Valid GenreSaveRequest saveRequest) {
-    return genreRepository.save(new Genre(saveRequest.getName()));
+    return genreRepository.save(Genre.builder().genreName(saveRequest.getName()).build());
   }
 
   @Put
   public Genre update(@Body @Valid GenreUpdateRequest updateRequest) {
-    return genreRepository.update(new Genre(
-        updateRequest.getId(),
-        updateRequest.getName()));
+    return genreRepository.update(Genre.builder()
+        .id(updateRequest.getId())
+        .genreName(updateRequest.getName()).build());
   }
 }

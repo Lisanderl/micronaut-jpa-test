@@ -23,6 +23,8 @@ java {
 
 dependencies {
   annotationProcessor(platform("io.micronaut:micronaut-bom:$micronautVersion"))
+  compileOnly 'org.projectlombok:lombok:1.18.12'
+  annotationProcessor "org.projectlombok:lombok:1.18.12"
   annotationProcessor("io.micronaut:micronaut-inject-java")
   annotationProcessor("io.micronaut:micronaut-validation")
   annotationProcessor("io.micronaut:micronaut-graal")

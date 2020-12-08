@@ -1,7 +1,7 @@
 package example.micronaut.controller.request;
 
 import io.micronaut.core.annotation.Introspected;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +10,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GenreSaveRequest {
+public class SaveAuthorRequest {
+  @NotNull
+  private String firstName;
 
-  @NotBlank
-  private String name;
+  @NotNull
+  private String lastName;
 }
