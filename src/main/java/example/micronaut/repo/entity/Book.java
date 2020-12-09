@@ -1,5 +1,6 @@
 package example.micronaut.repo.entity;
 
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 
 import javax.persistence.Column;
@@ -33,9 +34,9 @@ public class Book {
   @Column(name = "isbn", nullable = false)
   private String isbn;
 
-  @ManyToOne(fetch = LAZY)
+  @ManyToOne(fetch = EAGER)
   private Author author;
 
-  @ManyToOne(fetch = LAZY)
+  @ManyToOne(fetch = EAGER)
   private Genre genre;
 }

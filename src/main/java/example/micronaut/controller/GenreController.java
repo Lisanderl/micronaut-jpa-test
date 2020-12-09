@@ -36,7 +36,6 @@ public class GenreController {
   }
 
   @Get("/find")
-  @Transactional
   public Optional<Genre> find(@QueryValue Long id) {
     return Optional.ofNullable(entityManager.find(Genre.class, id));
   }
