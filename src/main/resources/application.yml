@@ -14,8 +14,8 @@ jackson:
 
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/micro
-    #    url: jdbc:postgresql://db:5432/micro
+    #    url: jdbc:postgresql://localhost:5432/micro
+    url: jdbc:postgresql://db:5432/micro
     #    url: ${JDBC_URL:`jdbc:mysql://172.17.0.2:3306/micro`}
     #    url: ${JDBC_URL:`jdbc:mysql://localhost:3306/micro`}
     username: root
